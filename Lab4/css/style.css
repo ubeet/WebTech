@@ -117,7 +117,7 @@
 }
 
 body {
-    background-image: url("imgs/img_1.png");
+    background-image: url("../imgs/img_1.png");
     background-repeat: no-repeat;
     background-size: 100% 260px;
     background-position-y: 480px;
