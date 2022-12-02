@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel = "stylesheet" href = "css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lab1-3</title>
+
+</head>
+<body>
+
+<header>
+    <div class = "container">
+        <div class = "header__inner">
+            <div class = "logo">Lab1</div>
+            <nav class = "nav">
+                <a class = "nav__link" href="index.html">1.1</a>
+                <a class = "nav__link" href="index2.html">1.2</a>
+                <a class = "nav__link" href="lab1.2.html">2</a>
+                <a class = "nav__link" href="lab1.3.html">3</a>
+                <a class = "nav__link" href="lab1.4.html">4</a>
+                <a class = "nav__link" href="lab1.5.html">5</a>
+            </nav>
+        </div>
+        <div class = "main_menu">
+            <div class = "left__menu" id="left">
+                <p class="txt">left</p>
+            </div>
+            <div class = "s1">
+                <div class = "top__menu">
+                    <p class="txt">top</p>
+                </div>
+                <div class = "s2">
+                    <div class = "s3">
+                        <div class = "center__menu">
+                            <div style="margin: 10px">
+                                <input type="text" id="toRevert" width=20% height="10px">
+                                <input type="button" onclick = "revertNums(document.getElementById('toRevert').value)" value = "Перевернуть">
+                            </div>
+
+                            <div style="margin: 10px">
+                                <input type="text" id="color" width=20% height="10px" maxlength="6">
+                                <input type="button" onclick = "setBorderColor(document.getElementById('color').value)" value = "Сменить цвет рамки">
+                            </div>
+                            <input style="margin: 10px" type = "button" onclick = "getRectangleSize(5)" value = "Вычислить площадь пятиугольника">
+                            <p id="rectangle"></p>
+                        </div>
+                        <div class = "centerbottom__menu">
+                            <p class="txt">CenterBottom</p>
+                        </div>
+                    </div>
+                    <div class = "right__menu" id="right">
+                        <p class="txt">right</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class = "bottom__inner">
+            <p class="txt">Bottom</p>
+        </div>
+    </div>
+
+    <script src="js/funcs.js" ></script>
+    <script>
+    color = window.localStorage.getItem("borderColor")
+    setBorderColor(color)
+    if(document.cookie === "")document.cookie = "nums=";
+    const left = document.getElementById("left");
+    const right = document.getElementById("right");
+
+    content = left.innerHTML;
+    left.innerHTML = right.innerHTML;
+    right.innerHTML = content;
+    </script>
+    <script>
+        if (document.cookie !== "nums="){
+            result = confirm(document.cookie.substring(5))
+            if (result){
+                document.cookie = "nums=";
+                location.reload()
+            }
+        }
+    </script>
+</header>
+</body>
+</html>
